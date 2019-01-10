@@ -1,3 +1,3 @@
 SELECT * 
 FROM users
-WHERE users.auth_id = $1;
+WHERE users.username = $1;

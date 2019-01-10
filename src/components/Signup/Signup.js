@@ -1,21 +1,20 @@
 import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
 import logo from "./communityBank.svg";
-import "./Login.css";
+import "./Signup.css";
 import Axios from "axios";
 
-export default class Login extends Component {
+export default class Signup extends Component {
   state = {
     username: "",
-    password: "",
-    loggedIn: false
+    password: ""
   };
 
   handleChange = e => this.setState({ [e.target.name]: e.target.value });
 
   handleSubmit = e => {
     e.preventDefault();
-    Axios.post("/auth/login", {
+    Axios.post("/auth/signup", {
       username: this.state.username,
       password: this.state.password
     })
@@ -47,9 +46,7 @@ export default class Login extends Component {
             type="password"
           />
           <br />
-          <button>Login</button>
-          <br />
-          <Link to="/signup">Don't have an account? Sign up here.</Link>
+          <button>Sign Up</button>
           {this.state.error && <p>Error. Please try again.</p>}
         </form>
       </div>
